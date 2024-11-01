@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <!-- Google Fonts: Open Sans and Russo One -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+
+    <!-- Optional link to Bootstrap for styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css"> <!-- Custom styles if any -->
+
+    <style>
+        /* Apply Russo One to the brand and headings */
+        .navbar-brand {
+            font-family: 'Russo One', sans-serif;
+        }
+        /* Keep Open Sans as the default for body text */
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar: A responsive navigation bar with a dark background, positioned at the top of the page -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <!-- Brand: Company name or logo that links back to the homepage -->
+        <a class="navbar-brand" href="/">Water & Power</a>
+
+        <!-- Toggler for mobile navigation -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible navbar links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Home link that returns to the index page -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <!-- Customer list link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/customers">Customers</a>
+                </li>
+                <!-- Meter reads link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/meters">Meter Reads</a>
+                </li>
+                <!-- Meter readers link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/meter-readers">Meter Readers</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main content -->
+<div class="container mt-5">
+    <h1 class="text-center">Welcome to Our Site</h1>
+    <p class="text-center">This is the homepage where you can navigate to various sections.</p>
+
+    <div class="text-center mt-4">
+        <!-- Link to the customer list page -->
+        <a href="/customers" class="btn btn-primary">View Customer List</a>
+    </div>
+</div>
+
+<!-- Bootstrap JS (optional, for additional interactivity) -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

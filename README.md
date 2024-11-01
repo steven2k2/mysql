@@ -1,4 +1,4 @@
-# Energy Management Web Application
+# Node.JS/MySQL Web Application
 
 This project is a web-based energy management application built using **Bootstrap 5**, **Node.js**, and **Vanilla JavaScript**. The application provides an interface for viewing fictional meter readings and customer information for an energy company.
 

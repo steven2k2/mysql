@@ -1,0 +1,94 @@
+<!--
+  File: customers.ejs
+  Purpose: This template displays a list of customers in a table format, with data fetched from the server.
+  Dependencies: Bootstrap for styling, /js/fetchCustomers.js for dynamic data insertion (if applicable)
+  Routes: Accessible via the '/meters' route, which fetches data from the customerController.
+  Author: Steven Thompson
+  Date: 31-Oct-2024
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meters</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<!-- Navbar: A responsive navigation bar with a dark background, positioned at the top of the page -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <!-- Brand: Company name or logo that links back to the homepage -->
+        <a class="navbar-brand" href="/">Energy Corporation</a>
+
+        <!-- Toggler for mobile navigation -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible navbar links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Home link that returns to the index page -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <!-- Customer list link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/customers">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/meters">Meter reads</a>
+                </li>
+                <!-- Additional links can be added here as needed -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main content -->
+<div class="container mt-5">
+    <main role="main" class="py-3">
+        <h1>Meters</h1>
+
+        <!-- Table for displaying customer data -->
+        <div class="table-responsive">
+            <table class="table table-sm table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col" class="text-end">Reading</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% meters.forEach(meter => { %>
+                    <tr>
+                        <td><%= meter.meter_id %></td>
+                        <td><%= meter.meter_id %></td>
+                        <td><%= meter.meter_id %></td>
+                        <td class="text-end"><%= meter.reading_value %></td>
+                    </tr>
+                <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer class="bg-light text-center py-3 mt-4">
+        <small>Powered by Node & Vanilla JS</small>
+    </footer>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
