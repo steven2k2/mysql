@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <!-- Google Fonts: Open Sans and Russo One -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+
+    <!-- Optional link to Bootstrap for styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css"> <!-- Custom styles if any -->
+
+    <style>
+        body {
+            background-image: url('images/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        /* Ensure equal height for cards */
+        .card {
+            height: 100%;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Water & Power</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="/customers">Customers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/meters">Meter Reads</a></li>
+                <li class="nav-item"><a class="nav-link" href="/meter-readers">Meter Readers</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main role="main">
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Pure Water, Pure Commitment</h1>
+            <p>At Water & Power, we are dedicated to providing reliable and safe water solutions that support sustainable communities. Our commitment to excellence ensures that clean water flows where you need it, when you need it, every day.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="container">
+        <div class="row d-flex align-items-stretch">
+            <!-- Card 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Our Services</h5>
+                        <p class="card-text">From household water supply to advanced water treatment, we offer comprehensive services to meet diverse needs. Discover how our solutions ensure access to high-quality water in urban and rural areas alike.</p>
+                        <a href="#" class="btn btn-secondary mt-auto">View details &raquo;</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Environmental Responsibility</h5>
+                        <p class="card-text">We are committed to environmentally responsible practices. Learn how we integrate sustainable processes to protect natural water sources and reduce environmental impact in all our operations.</p>
+                        <a href="#" class="btn btn-secondary mt-auto">View details &raquo;</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Community Support</h5>
+                        <p class="card-text">We believe in empowering communities through education and support. Our initiatives provide resources to help households and businesses manage water use responsibly.</p>
+                        <a href="#" class="btn btn-secondary mt-auto">View details &raquo;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

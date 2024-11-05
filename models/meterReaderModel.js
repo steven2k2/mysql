@@ -3,7 +3,7 @@ const db = require('../config/db');
 
 // models/meterReaderModel.js
 exports.getAllMeterReaders = (callback) => {
-    const query = 'SELECT reader_id, first_name, last_name, email, phone_number, hire_date, address, city, postal_code, is_active FROM meter_readers';
+    const query = 'SELECT * FROM new_meter_readers';
     db.query(query, (err, results) => {
         if (err) {
             return callback(err, null);
@@ -26,12 +26,24 @@ exports.getAllMeterReaders = (callback) => {
 
 // Function to get a meter reader by ID
 exports.getMeterReaderById = (id, callback) => {
-    const query = 'SELECT * FROM meter_readers WHERE reader_id = ?';
+    const query = 'SELECT * FROM new_meter_readers WHERE reader_id = ?';
+    alert('getMeterReaderById');
     db.query(query, [id], (err, result) => {
         if (err) {
             return callback(err, null);
         }
         callback(null, result[0]);
+    });
+};
+
+// Function to get a meter reader by username (email)
+exports.getMeterReaderByUsername = (username, callback) => {
+    const query = 'SELECT * FROM meter_readers WHERE email = ? LIMIT 1';
+    db.query(query, [username], (err, results) => {
+        if (err) {
+            return callback(err, null);
+        }
+        callback(null, results[0]); // Return the first result if found, otherwise null
     });
 };
 

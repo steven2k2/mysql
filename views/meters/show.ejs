@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meters</title>
+
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Google Material Icons (Outlined Version) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .navbar {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+        }
+        .navbar .back-btn {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        .map-container {
+            height: 150px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Simple Navbar with Back Arrow -->
+<nav class="navbar">
+    <a href="javascript:history.back()" class="back-btn">
+        <span class="material-icons-outlined">arrow_back</span>
+    </a>
+    <span class="navbar-brand text-white ms-2">Meters</span>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <%- include('../partials/sidebar') %>
+
+        <!-- Main Content Area with Correct Bootstrap Grid -->
+        <main role="main" class="col py-3">
+            <h2 class="mb-4">Meter Information</h2>
+
+            <div class="row">
+                <% data.forEach((meter, index) => { %>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card border">
+                            <div class="card-header bg-primary text-white">
+                                <h5>Meter ID: <%= meter.meter_id %></h5>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <!-- Left Column: Meter Information -->
+                                    <div class="col-7">
+                                        <h5 class="card-title"><%= meter.meter_make_model %> - <span class="text-capitalize"><%= meter.meter_type %></span></h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Serial number: <%= meter.serial_number %></h6>
+                                        <div class="row">
+                                            <div class="col-6"><strong>Location:</strong></div>
+                                            <div class="col-6"><%= meter.location_address %></div>
+
+                                            <div class="col-6"><strong>Installed:</strong></div>
+                                            <div class="col-6"><%= formatDate(meter.installation_date, 'medium') %></div>
+
+                                            <div class="col-6"><strong>Latitude:</strong></div>
+                                            <div class="col-6"><%= meter.location_latitude %></div>
+
+                                            <div class="col-6"><strong>Longitude:</strong></div>
+                                            <div class="col-6"><%= meter.location_longitude %></div>
+
+                                            <div class="col-6"><strong>Size:</strong></div>
+                                            <div class="col-6"><%= meter.meter_size %> mm</div>
+
+                                            <div class="col-6"><strong>Capacity:</strong></div>
+                                            <div class="col-6"><%= meter.capacity %> units</div>
+
+                                            <div class="col-6"><strong>Status:</strong></div>
+                                            <div class="col-6"><%= meter.status.charAt(0).toUpperCase() + meter.status.slice(1) %></div>
+
+                                            <div class="col-6"><strong>Customer ID:</strong></div>
+                                            <div class="col-6"><%= meter.customer_id %></div>
+
+                                            <div class="col-6"><strong>Last read:</strong></div>
+                                            <div class="col-6"><%= formatDate(meter.last_reading_date, 'medium') %></div>
+
+                                            <div class="col-6"><strong>Cumulative usage:</strong></div>
+                                            <div class="col-6"><%= meter.cumulative_usage %> units</div>
+
+                                            <div class="col-6"><strong>Last maintenance:</strong></div>
+                                            <div class="col-6"><%= formatDate(meter.last_maintenance_date, 'medium') %></div>
+                                        </div>
+                                    </div>
+                                    <!-- Right Column: Map -->
+                                    <div class="col-5">
+                                        <div id="map-<%= index %>" class="map-container"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Google Maps JavaScript API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize a map for each meter
+        <% data.forEach((meter, index) => { %>
+        const mapContainer = document.getElementById("map-<%= index %>");
+        if (mapContainer) {
+            const map = new google.maps.Map(mapContainer, {
+                center: { lat: <%= meter.location_latitude %>, lng: <%= meter.location_longitude %> },
+                zoom: 14
+            });
+            new google.maps.Marker({
+                position: { lat: <%= meter.location_latitude %>, lng: <%= meter.location_longitude %> },
+                map: map,
+                title: "Meter Location"
+            });
+        }
+        <% }); %>
+    });
+</script>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

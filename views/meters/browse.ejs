@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meters</title>
+
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Optional link to Bootstrap for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Material Icons (Outlined Version) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css"> <!-- Custom styles if any -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<%- include('../partials/header') %> <!-- Adjusted path for the header partial -->
+
+
+<div class="container-fluid">
+    <div class="row">
+        <%- include('../partials/sidebar') %> <!-- Adjusted path for the sidebar partial -->
+
+        <!-- Main Content Area with Correct Bootstrap Grid -->
+        <main role="main" class="col py-3">
+            <h1>Meters</h1>
+
+            <!-- Table for displaying customer data -->
+            <div class="table-responsive">
+                <table class="table table-sm table-hover" id="meters_table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Number</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col" class="text-end">Reading</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% meters.forEach(meter => { %>
+                        <tr class="clickable-row" data-href="/meters/<%= meter.meter_id %>">
+                            <td><%= meter.meter_id %></td>
+                            <td><%= meter.meter_make_model %></td>
+                            <td><%= formatDate(meter.last_reading_date, 'full') %></td>
+                            <td class="text-end"><%= meter.meter_type %></td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- jQuery (required for Bootstrap Table and '$' usage) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"  crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add click event to rows with the class `clickable-row`
+        $('#meters_table').on('click', '.clickable-row', function () {
+            const url = $(this).data('href');
+            if (url) {
+                window.location.href = url; // Uncomment to enable redirection
+            }
+        });
+    });
+</script>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

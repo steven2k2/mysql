@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+
+    <%- include('../partials/bootstrap5') %>
+
+</head>
+<body>
+
+<%- include('../partials/header') %> <!-- Path relative to the /views directory -->
+
+<div class="container-fluid">
+    <div class="row">
+        <%- include('../partials/sidebar') %> <!-- Path relative to the /views directory -->
+        <div class="col-10">
+            <h1 class="text-capitalize"><%= text %></h1>
+
+            <!-- Table for displaying customer data -->
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width: 5%;">Customer ID</th>
+                        <th scope="col" style="width: 30%;">Full Name</th>
+                        <th scope="col" style="width: 45%;">Address</th>
+                        <th scope="col" style="width: 20%;">Run</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% customers.forEach(customer => { %>
+                        <tr>
+                            <td ><%= customer.customer_id %></td>
+                            <td ><%= customer.full_name %></td>
+                            <td class="truncate"><%= customer.address %>, <%= customer.city %></td>
+                            <td class="text-end"><%= customer.alpha_run_id %></td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

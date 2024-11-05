@@ -1,0 +1,26 @@
+:root {
+    --primary-dark-purple: #3C0053;
+    --accent-purple: #673AB7;
+    --secondary-grey: #9E9E9E;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+
+.text-muted {
+    color: var(--secondary-grey);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--white);
+    color: var(--black);
+
+}
+
+
+.text-secondary {
+    color: #6c757d; /* Muted grey for secondary text */
+    opacity: 0.75; /* Slightly transparent for a softer appearance */
+    font-weight: 400; /* Normal font weight */
+}

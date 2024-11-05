@@ -1,0 +1,38 @@
+<div class="bg-light d-flex flex-column flex-shrink-0 p-3" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <span class="fs-4"><%= text %></span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="/dashboard" class="nav-link <%= text === 'dashboard' ? 'active' : 'link-dark' %>">
+                Dashboard
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/customers" class="nav-link <%= text === 'customers' ? 'active' : 'link-dark' %>">
+                Customers
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/readings" class="nav-link <%= text === 'readings' ? 'active' : 'link-dark' %>">
+                Readings
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/issues" class="nav-link <%= text === 'issues' ? 'active' : 'link-dark' %>">
+                Issues
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/meters" class="nav-link <%= text === 'meters' ? 'active' : 'link-dark' %>">
+                Meters
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/readers" class="nav-link <%= text === 'readers' ? 'active' : 'link-dark' %>">
+                Readers
+            </a>
+        </li>
+    </ul>
+</div>

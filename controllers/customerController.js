@@ -11,6 +11,6 @@ exports.getAllCustomers = (req, res) => {
             return res.status(500).send('Error retrieving customers');
         }
         // Pass the data to the 'customers' view template
-        res.render('customers', { customers: results });
+        res.render('customers/browse', { text: 'customers',customers: results });
     });
 };

@@ -1,7 +1,7 @@
 // controllers/meterReaderController.js
-const MeterReader = require('../models/meterReaderModel');
+const dashBoard = require('../models/dashBoardModel');
 
-exports.getAllMeterReaders = (req, res) => {
+exports.getDashboard = (req, res) => {
     MeterReader.getAllMeterReaders((err, data) => {
         if (err) {
             return res.status(500).json({ message: 'Error fetching meter readers' });
